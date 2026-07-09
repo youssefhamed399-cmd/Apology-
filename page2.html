@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آسف يا دودو 💔</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* ------------------ الخلفية الفخمة ------------------ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at 50% 30%, #2d0a1a, #0f030a);
+            overflow: hidden;
+            padding: 20px;
+            margin: 0;
+        }
+
+        /* ---------- قلوب طايرة في الخلفية ---------- */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .heart-float {
+            position: absolute;
+            bottom: -50px;
+            font-size: 24px;
+            color: rgba(212, 175, 55, 0.25);
+            animation: floatUp linear infinite;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg) scale(0.5); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-110vh) rotate(720deg) scale(1.2); opacity: 0; }
+        }
+        .heart-float:nth-child(1) { left: 5%; animation-duration: 14s; font-size: 30px; }
+        .heart-float:nth-child(2) { left: 15%; animation-duration: 18s; font-size: 18px; animation-delay: 2s; }
+        .heart-float:nth-child(3) { left: 30%; animation-duration: 12s; font-size: 40px; animation-delay: 4s; }
+        .heart-float:nth-child(4) { left: 50%; animation-duration: 20s; font-size: 22px; animation-delay: 1s; }
+        .heart-float:nth-child(5) { left: 70%; animation-duration: 16s; font-size: 35px; animation-delay: 3s; }
+        .heart-float:nth-child(6) { left: 85%; animation-duration: 13s; font-size: 25px; animation-delay: 5s; }
+        .heart-float:nth-child(7) { left: 40%; animation-duration: 22s; font-size: 15px; animation-delay: 6s; }
+        .heart-float:nth-child(8) { left: 92%; animation-duration: 17s; font-size: 28px; animation-delay: 2s; }
+
+        /* ---------- الحاوية الرئيسية ---------- */
+        .container {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 700px;
+            min-height: 80vh;
+            text-align: center;
+        }
+
+        .glow-effect {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.12), transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 1;
+            border-radius: 50%;
+        }
+
+        /* القلب النابض */
+        .heart-beat {
+            font-size: 140px;
+            color: #e91e63;
+            animation: heartbeat 1.2s infinite;
+            text-shadow: 0 0 60px #e91e63, 0 0 120px #e91e63;
+            z-index: 2;
+            margin-bottom: 10px;
+            user-select: none;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.25); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.15); }
+            70% { transform: scale(1); }
+        }
+
+        .sub-title {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 22px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            z-index: 2;
+        }
+
+        .counter {
+            font-size: 90px;
+            font-weight: 900;
+            color: #D4AF37;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 5px 50px;
+            border-radius: 30px;
+            border: 2px solid rgba(212, 175, 55, 0.4);
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.15);
+            margin: 10px 0 30px 0;
+            z-index: 2;
+            backdrop-filter: blur(10px);
+            min-width: 120px;
+        }
+
+        /* زر الاعتذار */
+        .btn-sorry {
+            background: linear-gradient(135deg, #e91e63, #c2185b);
+            color: white;
+            border: none;
+            padding: 20px 55px;
+            font-size: 30px;
+            font-weight: 900;
+            font-family: 'Tajawal', sans-serif;
+            border-radius: 70px;
+            cursor: pointer;
+            box-shadow: 0 10px 40px rgba(233, 30, 99, 0.5), inset 0 2px 0 rgba(255, 255, 255, 0.2);
+            transition: all 0.2s ease;
+            z-index: 2;
+            letter-spacing: 2px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .btn-sorry:hover {
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 0 15px 50px rgba(233, 30, 99, 0.7);
+        }
+        .btn-sorry:active {
+            transform: scale(0.92);
+        }
+
+        /* رسالة الاعتذار المتغيرة */
+        .sorry-message {
+            font-size: 32px;
+            color: #fff4e6;
+            margin-top: 25px;
+            min-height: 60px;
+            font-weight: 700;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 10px 30px;
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        /* الرسالة النهائية (لما يوصل للصفر) */
+        #finalMessage {
+            display: none;
+            z-index: 2;
+            animation: fadeSlideUp 0.8s ease;
+            margin-top: 20px;
+        }
+
+        @keyframes fadeSlideUp {
+            0% { opacity: 0; transform: translateY(40px) scale(0.9); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .final-text {
+            color: #D4AF37;
+            font-size: 52px;
+            font-weight: 900;
+            text-shadow: 0 0 50px #ff1493, 0 0 100px #ff1493;
+            animation: heartbeat 1.2s infinite;
+            margin-bottom: 20px;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #D4AF37, #b8860b);
+            color: #1a0b1a;
+            border: none;
+            padding: 18px 45px;
+            font-size: 24px;
+            font-weight: 900;
+            font-family: 'Tajawal', sans-serif;
+            border-radius: 60px;
+            cursor: pointer;
+            box-shadow: 0 5px 30px rgba(212, 175, 55, 0.4), inset 0 2px 0 rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            border: 1px solid #ffe68f;
+            margin-top: 10px;
+        }
+        .btn-gold:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6);
+            background: linear-gradient(135deg, #ffe68f, #d4af37);
+        }
+
+        @media (max-width: 500px) {
+            .heart-beat { font-size: 100px; }
+            .counter { font-size: 60px; padding: 5px 30px; }
+            .btn-sorry { font-size: 24px; padding: 15px 35px; }
+            .sorry-message { font-size: 24px; padding: 8px 20px; }
+            .final-text { font-size: 36px; }
+            .btn-gold { font-size: 20px; padding: 14px 30px; }
+            .sub-title { font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- قلوب طايرة -->
+    <div class="floating-hearts">
+        <div class="heart-float">❤️</div>
+        <div class="heart-float">💛</div>
+        <div class="heart-float">❤️</div>
+        <div class="heart-float">💖</div>
+        <div class="heart-float">❤️</div>
+        <div class="heart-float">💗</div>
+        <div class="heart-float">❤️</div>
+        <div class="heart-float">💕</div>
+    </div>
+
+    <div class="container">
+        <div class="glow-effect"></div>
+
+        <!-- القلب النابض -->
+        <div class="heart-beat">❤️</div>
+
+        <p class="sub-title">عدد مرات الأسف المتبقية</p>
+        <div class="counter" id="counterDisplay">20</div>
+
+        <button class="btn-sorry" id="sorryBtn">أنا آسف 💔</button>
+
+        <div id="messageBox" class="sorry-message">✨ إضغطي على الزر</div>
+
+        <div id="finalMessage">
+            <h1 class="final-text">سامحتك يا روحي 🌹</h1>
+            <button class="btn-gold" onclick="window.location.href='page3.html'">
+                نروح للأغنية 🎵
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // ============================================================
+        //  هنا القائمة الجديدة بتاعتك (تم استبدالها بالضبط حسب طلبك)
+        // ============================================================
+        const sorryPhrases = [
+            "أنا آسف",
+            "حقك عليا",
+            "سامحيني",
+            "أنا غلطان",
+            "ندمان جدًا",
+            "مقصدتش أزعلك",
+            "سامحيني المرة دي",
+            "متزعليش",
+            "رضاكي يهمني",
+            "اديني فرصة",
+            "أوعدك أتغير",
+            "بلاش خصام",
+            "أستحق اللوم",
+            "هصلح غلطتي",
+            "وحشتني ضحكتك",
+            "وحشتيني أوي",
+            "وجودك نعمة",
+            "متبعديش عني",
+            "نبدأ من جديد",
+            "بحبك جدًا ❤️"
+        ];
+
+        let count = 20;
+        const counterDisplay = document.getElementById('counterDisplay');
+        const sorryBtn = document.getElementById('sorryBtn');
+        const messageBox = document.getElementById('messageBox');
+        const finalMessage = document.getElementById('finalMessage');
+
+        sorryBtn.addEventListener('click', function() {
+            if (count > 0) {
+                count--;
+                counterDisplay.textContent = count;
+
+                // اختيار جملة عشوائية من القائمة الجديدة
+                const randomIndex = Math.floor(Math.random() * sorryPhrases.length);
+                messageBox.textContent = sorryPhrases[randomIndex];
+                
+                // إعادة تشغيل الحركة بشكل منعش
+                messageBox.style.animation = 'none';
+                setTimeout(() => { messageBox.style.animation = 'fadeSlideUp 0.4s ease'; }, 10);
+
+                if (count === 0) {
+                    messageBox.textContent = "🤍 آخر مرة.. سامحيني من كل قلبي 🤍";
+                    sorryBtn.style.display = 'none';
+                    finalMessage.style.display = 'block';
+                    setTimeout(() => {
+                        finalMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 300);
+                }
+            }
+        });
+    </script>
+
+</body>
+      </html>
