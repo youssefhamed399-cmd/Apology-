@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>آسف يا دودو 💔</title>
+    <title>آسف يا دودو 🫀 </title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&display=swap" rel="stylesheet">
     <style>
         * {
@@ -242,7 +242,7 @@
         <div id="messageBox" class="sorry-message">✨ إضغطي على الزر</div>
 
         <div id="finalMessage">
-            <h1 class="final-text">وتيني ❤️</h1>
+            <h1 class="final-text">انتِ وتيني وشريان روحي ❤️</h1>
             <button class="btn-gold" onclick="window.location.href='page3.html'">
                 نروح للأغنية 🎵
             </button>
@@ -251,36 +251,36 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // =============================================
-            // ١. قائمة جمل الاعتذار (زي ما انت كاتبها بالظبط)
-            // =============================================
+            // ============================================================
+            //  القائمة الجديدة بالترتيب اللي انت كتبته (ممنوع العشوائية)
+            // ============================================================
             const sorryPhrases = [
                 "أنا آسف",
                 "حقك عليا",
                 "سامحيني",
                 "أنا غلطان",
-                "ندمان جدًا",
-                "مقصدتش أزعلك",
+                "و ندمان جدًا",
+                "و مقصدتش أزعلك",
                 "سامحيني المرة دي",
-                "متزعليش",
+                "و متزعليش نفسك",
                 "رضاكي يهمني",
                 "اديني فرصة",
-                "أوعدك أتغير",
+                "و أوعدك أتغير",
                 "بلاش خصام",
-                "أستحق اللوم",
+                "انا أستحق اللوم",
                 "هصلح غلطتي",
-                "وحشتني ضحكتك",
                 "وحشتيني أوي",
+                "ووحشتني ضحكتك",
                 "وجودك نعمة",
                 "متبعديش عني",
-                "نبدأ من جديد",
+                "عاوز نبدأ من جديد",
                 "بحبك جدًا ❤️"
             ];
 
-            // =============================================
-            // ٢. الكود الشغال (ممنوع التكرار، وآخر كلمة "بحبك جداً")
-            // =============================================
-            let remainingPhrases = [...sorryPhrases]; // نسخة من القائمة هنشيل منها الجمل
+            // ============================================================
+            //  الكود الشغال (بيظهر الجمل بالترتيب من الأول للآخر)
+            // ============================================================
+            let currentIndex = 0; // هنبدأ من أول جملة (رقم 0)
             let count = 20;
 
             const counterDisplay = document.getElementById('counterDisplay');
@@ -293,23 +293,22 @@
                     count--;
                     counterDisplay.textContent = count;
 
-                    // اختيار جملة عشوائية من الجمل المتبقية (اللي لسه متظهرتش)
-                    if (remainingPhrases.length > 0) {
-                        const randomIndex = Math.floor(Math.random() * remainingPhrases.length);
-                        messageBox.textContent = remainingPhrases[randomIndex];
-                        // نشيل الجملة دي عشان ماتظهرش تاني
-                        remainingPhrases.splice(randomIndex, 1);
+                    // =============================================
+                    //  نظهر الجملة بالترتيب (مفيش عشوائية)
+                    // =============================================
+                    if (currentIndex < sorryPhrases.length) {
+                        messageBox.textContent = sorryPhrases[currentIndex];
+                        currentIndex++; // ننتقل للجملة اللي بعدها
                     }
 
                     // =============================================
-                    // ٣. لما يوصل للصفر (آخر ضغطة)
+                    //  لما يوصل للصفر (آخر ضغطة)
                     // =============================================
                     if (count === 0) {
-                        // هنا بنحدد الجملة الأخيرة بالضبط (بحبك جداً)
+                        // نتأكد إن الجملة الأخيرة هي "بحبك جدًا ❤️"
                         messageBox.textContent = "بحبك جدًا ❤️";
-                        sorryBtn.style.display = 'none'; // نخفي الزر
-                        finalMessage.style.display = 'block'; // نظهر الرسالة النهائية
-                        // نلفت النظر للأسفل عشان تشوف الرسالة
+                        sorryBtn.style.display = 'none'; 
+                        finalMessage.style.display = 'block';
                         setTimeout(() => {
                             finalMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
                         }, 300);
@@ -320,4 +319,4 @@
     </script>
 
 </body>
-    </html>
+            </html>
