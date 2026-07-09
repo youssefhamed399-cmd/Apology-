@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الأغنية ورسالتي لدودو 🎶</title>
+    <title>رسالتي لدودو 🎶</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&display=swap" rel="stylesheet">
     <style>
         * {
@@ -19,6 +19,7 @@
             margin: 0;
             display: flex;
             justify-content: center;
+            align-items: center;
         }
         /* قلوب طايرة */
         .floating-hearts {
@@ -79,40 +80,8 @@
             height: 100%;
         }
 
-        /* صندوق الكلمات */
-        .lyrics-box {
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 20px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            width: 100%;
-            min-height: 150px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-        }
-        .lyrics-box h2 {
-            color: #D4AF37;
-            font-size: 28px;
-            text-align: center;
-            margin-bottom: 15px;
-            font-weight: 900;
-            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
-        }
-        #lyricsText {
-            color: #fff4e6;
-            font-size: 1.6rem;
-            line-height: 2.2;
-            direction: rtl;
-            text-align: center;
-            white-space: pre-wrap;
-            min-height: 80px;
-            font-weight: 500;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
-        }
-
-        /* الرسالة الشخصية (تظهر بعد الكلمات) */
+        /* الرسالة الشخصية (تظهر بعد الفيديو مباشرة) */
         #personalMessage {
-            display: none;
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
             padding: 35px;
@@ -149,9 +118,7 @@
         }
 
         @media (max-width: 600px) {
-            #lyricsText { font-size: 1.2rem; line-height: 2; }
             #personalMessage p { font-size: 1rem; line-height: 2; }
-            .lyrics-box { padding: 20px; }
             #personalMessage { padding: 20px; }
         }
     </style>
@@ -180,13 +147,7 @@
             </iframe>
         </div>
 
-        <!-- كلمات الأغنية -->
-        <div class="lyrics-box">
-            <h2>🎵 كلمات الأغنية</h2>
-            <p id="lyricsText"></p>
-        </div>
-
-        <!-- رسالتك الطويلة (مخفية في الأول) -->
+        <!-- رسالتك الطويلة (بتظهر على طول مع أنيميشن خفيف) -->
         <div id="personalMessage">
             <p>
                 إلى مَن أُحب.. وإلى أغلى ما أملك،<br><br>
@@ -202,43 +163,15 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const lyricsText = document.getElementById('lyricsText');
-            const personalMsg = document.getElementById('personalMessage');
-
-            // كلمات الأغنية (من "إلى من أحب")
-            const lyrics = `إلى من أحب .. إلى من أحب
-        يا من هواه في دمي
-        إلى من أحب .. إلى من أحب
-        كل الذي أملكه
-        
-        يا من إذا غابوا يغيب ضيي
-        وإذا بدوا .. يشرق الكون بيهم
-        يا فرحتي في كل دنياي
-        يا منيتي وعيوني فيهم`;
-
-            let charIndex = 0;
-
-            function typeLyrics() {
-                if (charIndex < lyrics.length) {
-                    // نضيف الحرف الجديد
-                    lyricsText.textContent += lyrics.charAt(charIndex);
-                    charIndex++;
-                    // سرعة الكتابة (أسرع شوية عشان متملش)
-                    setTimeout(typeLyrics, 50);
-                } else {
-                    // بعد ما تخلص الكلمات، نستنى 1.5 ثانية ونظهر الرسالة
-                    setTimeout(() => {
-                        personalMsg.style.display = 'block';
-                        // نلفت النظر للرسالة
-                        personalMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    }, 1500);
-                }
-            }
-
-            // نبدأ الكتابة بعد تحميل الصفحة بنص ثانية
-            setTimeout(typeLyrics, 500);
+            // الصفحة بتظهر على طول من غير انتظار كتابة كلمات
+            // عشان نحسسها بأنيميشن الظهور، نضيف كلاس صغير لو عاوز، بس هي أصلاً عندها fadeSlideUp
+            // ممكن نلفت نظرها للرسالة بهدوء
+            const msg = document.getElementById('personalMessage');
+            setTimeout(() => {
+                msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 500);
         });
     </script>
 
 </body>
-  </html>
+</html>
