@@ -6,13 +6,11 @@
     <title>آسف يا دودو 💔</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&display=swap" rel="stylesheet">
     <style>
-        /* ------------------ الخلفية الفخمة ------------------ */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Tajawal', sans-serif;
             min-height: 100vh;
@@ -24,8 +22,6 @@
             padding: 20px;
             margin: 0;
         }
-
-        /* ---------- قلوب طايرة في الخلفية ---------- */
         .floating-hearts {
             position: fixed;
             top: 0;
@@ -58,8 +54,6 @@
         .heart-float:nth-child(6) { left: 85%; animation-duration: 13s; font-size: 25px; animation-delay: 5s; }
         .heart-float:nth-child(7) { left: 40%; animation-duration: 22s; font-size: 15px; animation-delay: 6s; }
         .heart-float:nth-child(8) { left: 92%; animation-duration: 17s; font-size: 28px; animation-delay: 2s; }
-
-        /* ---------- الحاوية الرئيسية ---------- */
         .container {
             position: relative;
             z-index: 10;
@@ -72,7 +66,6 @@
             min-height: 80vh;
             text-align: center;
         }
-
         .glow-effect {
             position: absolute;
             width: 400px;
@@ -85,8 +78,6 @@
             z-index: 1;
             border-radius: 50%;
         }
-
-        /* القلب النابض */
         .heart-beat {
             font-size: 140px;
             color: #e91e63;
@@ -103,7 +94,6 @@
             42% { transform: scale(1.15); }
             70% { transform: scale(1); }
         }
-
         .sub-title {
             color: rgba(255, 255, 255, 0.8);
             font-size: 22px;
@@ -112,7 +102,6 @@
             margin-bottom: 10px;
             z-index: 2;
         }
-
         .counter {
             font-size: 90px;
             font-weight: 900;
@@ -127,8 +116,6 @@
             backdrop-filter: blur(10px);
             min-width: 120px;
         }
-
-        /* زر الاعتذار */
         .btn-sorry {
             background: linear-gradient(135deg, #e91e63, #c2185b);
             color: white;
@@ -152,8 +139,6 @@
         .btn-sorry:active {
             transform: scale(0.92);
         }
-
-        /* رسالة الاعتذار المتغيرة */
         .sorry-message {
             font-size: 32px;
             color: #fff4e6;
@@ -169,20 +154,16 @@
             border: 1px solid rgba(212, 175, 55, 0.15);
             transition: all 0.3s ease;
         }
-
-        /* الرسالة النهائية (لما يوصل للصفر) */
         #finalMessage {
             display: none;
             z-index: 2;
             animation: fadeSlideUp 0.8s ease;
             margin-top: 20px;
         }
-
         @keyframes fadeSlideUp {
             0% { opacity: 0; transform: translateY(40px) scale(0.9); }
             100% { opacity: 1; transform: translateY(0) scale(1); }
         }
-
         .final-text {
             color: #D4AF37;
             font-size: 52px;
@@ -191,7 +172,6 @@
             animation: heartbeat 1.2s infinite;
             margin-bottom: 20px;
         }
-
         .btn-gold {
             background: linear-gradient(135deg, #D4AF37, #b8860b);
             color: #1a0b1a;
@@ -212,7 +192,6 @@
             box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6);
             background: linear-gradient(135deg, #ffe68f, #d4af37);
         }
-
         @media (max-width: 500px) {
             .heart-beat { font-size: 100px; }
             .counter { font-size: 60px; padding: 5px 30px; }
@@ -225,8 +204,6 @@
     </style>
 </head>
 <body>
-
-    <!-- قلوب طايرة -->
     <div class="floating-hearts">
         <div class="heart-float">❤️</div>
         <div class="heart-float">💛</div>
@@ -237,52 +214,27 @@
         <div class="heart-float">❤️</div>
         <div class="heart-float">💕</div>
     </div>
-
     <div class="container">
         <div class="glow-effect"></div>
-
-        <!-- القلب النابض -->
         <div class="heart-beat">❤️</div>
-
         <p class="sub-title">عدد مرات الأسف المتبقية</p>
         <div class="counter" id="counterDisplay">20</div>
-
         <button class="btn-sorry" id="sorryBtn">أنا آسف 💔</button>
-
         <div id="messageBox" class="sorry-message">✨ إضغطي على الزر</div>
-
         <div id="finalMessage">
-            <h1 class="final-text">سامحتك يا روحي 🌹</h1>
-            <button class="btn-gold" onclick="window.location.href='page3.html'">
-                نروح للأغنية 🎵
-            </button>
+            <h1 class="final-text">بحبك أنتِ ❤️</h1>
+            <button class="btn-gold" onclick="window.location.href='page3.html'">نروح للأغنية 🎵</button>
         </div>
     </div>
-
     <script>
-        // ============================================================
-        //  هنا القائمة الجديدة بتاعتك (تم استبدالها بالضبط حسب طلبك)
-        // ============================================================
+        // القائمة اللي انت كاتبها
         const sorryPhrases = [
-            "أنا آسف",
-            "حقك عليا",
-            "سامحيني",
-            "أنا غلطان",
-            "ندمان جدًا",
-            "مقصدتش أزعلك",
-            "سامحيني المرة دي",
-            "متزعليش",
-            "رضاكي يهمني",
-            "اديني فرصة",
-            "أوعدك أتغير",
-            "بلاش خصام",
-            "أستحق اللوم",
-            "هصلح غلطتي",
-            "وحشتني ضحكتك",
-            "وحشتيني أوي",
-            "وجودك نعمة",
-            "متبعديش عني",
-            "نبدأ من جديد",
+            "أنا آسف", "حقك عليا", "سامحيني", "أنا غلطان",
+            "ندمان جدًا", "مقصدتش أزعلك", "سامحيني المرة دي",
+            "متزعليش", "رضاكي يهمني", "اديني فرصة",
+            "أوعدك أتغير", "بلاش خصام", "أستحق اللوم",
+            "هصلح غلطتي", "وحشتني ضحكتك", "وحشتيني أوي",
+            "وجودك نعمة", "متبعديش عني", "نبدأ من جديد",
             "بحبك جدًا ❤️"
         ];
 
@@ -296,17 +248,14 @@
             if (count > 0) {
                 count--;
                 counterDisplay.textContent = count;
-
-                // اختيار جملة عشوائية من القائمة الجديدة
                 const randomIndex = Math.floor(Math.random() * sorryPhrases.length);
                 messageBox.textContent = sorryPhrases[randomIndex];
-                
-                // إعادة تشغيل الحركة بشكل منعش
                 messageBox.style.animation = 'none';
                 setTimeout(() => { messageBox.style.animation = 'fadeSlideUp 0.4s ease'; }, 10);
 
                 if (count === 0) {
-                    messageBox.textContent = "🤍 آخر مرة.. سامحيني من كل قلبي 🤍";
+                    // التعديل الجديد بتاعك هنا
+                    messageBox.textContent = "أنتِ أغلى ما عندي 🌹";
                     sorryBtn.style.display = 'none';
                     finalMessage.style.display = 'block';
                     setTimeout(() => {
@@ -316,6 +265,5 @@
             }
         });
     </script>
-
 </body>
-      </html>
+    </html>
