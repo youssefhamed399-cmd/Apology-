@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إلى دودو 💌</title>
+    <title>🔒 خاصة بدودو</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&display=swap" rel="stylesheet">
     <style>
-        /* ------------------ الأساسيات والخلفية الفخمة ------------------ */
         * {
             margin: 0;
             padding: 0;
@@ -25,7 +24,7 @@
             margin: 0;
         }
 
-        /* ---------- قلبات طايرة في الخلفية (تأثير سحري) ---------- */
+        /* ---------- قلوب طايرة في الخلفية ---------- */
         .floating-hearts {
             position: fixed;
             top: 0;
@@ -36,83 +35,182 @@
             z-index: 0;
             overflow: hidden;
         }
-
         .heart-float {
             position: absolute;
             bottom: -50px;
             font-size: 24px;
-            color: rgba(212, 175, 55, 0.3);
+            color: rgba(212, 175, 55, 0.25);
             animation: floatUp linear infinite;
             text-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
         }
-
         @keyframes floatUp {
-            0% {
-                transform: translateY(0) rotate(0deg) scale(0.5);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-110vh) rotate(720deg) scale(1.2);
-                opacity: 0;
-            }
+            0% { transform: translateY(0) rotate(0deg) scale(0.5); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-110vh) rotate(720deg) scale(1.2); opacity: 0; }
+        }
+        .heart-float:nth-child(1) { left: 5%; animation-duration: 14s; font-size: 30px; }
+        .heart-float:nth-child(2) { left: 15%; animation-duration: 18s; font-size: 18px; animation-delay: 2s; }
+        .heart-float:nth-child(3) { left: 30%; animation-duration: 12s; font-size: 40px; animation-delay: 4s; }
+        .heart-float:nth-child(4) { left: 50%; animation-duration: 20s; font-size: 22px; animation-delay: 1s; }
+        .heart-float:nth-child(5) { left: 70%; animation-duration: 16s; font-size: 35px; animation-delay: 3s; }
+        .heart-float:nth-child(6) { left: 85%; animation-duration: 13s; font-size: 25px; animation-delay: 5s; }
+        .heart-float:nth-child(7) { left: 40%; animation-duration: 22s; font-size: 15px; animation-delay: 6s; }
+        .heart-float:nth-child(8) { left: 92%; animation-duration: 17s; font-size: 28px; animation-delay: 2s; }
+
+        /* ---------- شاشة القفل (الأنيقة) ---------- */
+        .lock-screen {
+            position: relative;
+            z-index: 20;
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 50px 40px;
+            border-radius: 40px;
+            border: 1.5px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.8), 0 0 60px rgba(212, 175, 55, 0.05);
+            text-align: center;
+            max-width: 420px;
+            width: 100%;
+            animation: fadeSlideUp 0.9s ease;
+            transition: 0.3s;
         }
 
-        .heart-float:nth-child(1) {
-            left: 5%;
-            animation-duration: 14s;
+        @keyframes fadeSlideUp {
+            0% { opacity: 0; transform: translateY(50px) scale(0.95); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .lock-screen .lock-icon {
+            font-size: 70px;
+            margin-bottom: 10px;
+            display: block;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.2); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.1); }
+            70% { transform: scale(1); }
+        }
+
+        .lock-screen h2 {
+            color: #D4AF37;
             font-size: 30px;
-            animation-delay: 0s;
-        }
-        .heart-float:nth-child(2) {
-            left: 15%;
-            animation-duration: 18s;
-            font-size: 18px;
-            animation-delay: 2s;
-        }
-        .heart-float:nth-child(3) {
-            left: 30%;
-            animation-duration: 12s;
-            font-size: 40px;
-            animation-delay: 4s;
-        }
-        .heart-float:nth-child(4) {
-            left: 50%;
-            animation-duration: 20s;
-            font-size: 22px;
-            animation-delay: 1s;
-        }
-        .heart-float:nth-child(5) {
-            left: 70%;
-            animation-duration: 16s;
-            font-size: 35px;
-            animation-delay: 3s;
-        }
-        .heart-float:nth-child(6) {
-            left: 85%;
-            animation-duration: 13s;
-            font-size: 25px;
-            animation-delay: 5s;
-        }
-        .heart-float:nth-child(7) {
-            left: 40%;
-            animation-duration: 22s;
-            font-size: 15px;
-            animation-delay: 6s;
-        }
-        .heart-float:nth-child(8) {
-            left: 92%;
-            animation-duration: 17s;
-            font-size: 28px;
-            animation-delay: 2s;
+            font-weight: 900;
+            margin-bottom: 5px;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
         }
 
-        /* ---------- حاوية المنتصف ---------- */
+        .lock-screen .sub-lock {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 16px;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .lock-screen .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .lock-screen input {
+            width: 100%;
+            padding: 18px 20px;
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 8px;
+            border-radius: 60px;
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            background: rgba(0, 0, 0, 0.4);
+            color: #fff;
+            outline: none;
+            transition: 0.3s;
+            font-family: 'Tajawal', sans-serif;
+            direction: ltr;
+        }
+
+        .lock-screen input:focus {
+            border-color: #D4AF37;
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.15);
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .lock-screen .btn-unlock {
+            background: linear-gradient(135deg, #D4AF37, #b8860b);
+            color: #1a0b1a;
+            border: none;
+            padding: 18px 30px;
+            font-size: 22px;
+            font-weight: 900;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: 'Tajawal', sans-serif;
+            width: 100%;
+            border: 1px solid #ffe68f;
+            box-shadow: 0 5px 30px rgba(212, 175, 55, 0.2);
+            margin-top: 5px;
+        }
+
+        .lock-screen .btn-unlock:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.4);
+            background: linear-gradient(135deg, #ffe68f, #d4af37);
+        }
+
+        .lock-screen .btn-unlock:active {
+            transform: scale(0.95);
+        }
+
+        .lock-screen .error-msg {
+            color: #ff6b6b;
+            margin-top: 15px;
+            font-size: 18px;
+            min-height: 30px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .lock-screen .attempts {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 14px;
+            margin-top: 15px;
+            letter-spacing: 1px;
+        }
+
+        .lock-screen .attempts span {
+            color: #D4AF37;
+            font-weight: 900;
+        }
+
+        /* تأثير الهزة (shake) */
+        .shake {
+            animation: shake 0.5s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-15px); }
+            50% { transform: translateX(15px); }
+            75% { transform: translateX(-10px); }
+        }
+
+        /* ---------- المحتوى الرئيسي (الظرف) ---------- */
+        .main-content {
+            display: none;
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
         .container {
             position: relative;
             z-index: 10;
@@ -123,7 +221,7 @@
             width: 100%;
         }
 
-        /* ---------- إضاءة خلف الظرف (الغلوه) ---------- */
+        /* الإضاءة الخلفية */
         .glow-effect {
             position: absolute;
             width: 500px;
@@ -137,7 +235,7 @@
             border-radius: 50%;
         }
 
-        /* ---------- تصميم الظرف الفخم 3D ---------- */
+        /* الظرف */
         .envelope-wrapper {
             cursor: pointer;
             position: relative;
@@ -152,20 +250,17 @@
         .envelope {
             width: 340px;
             height: 220px;
-            background: #7a0f2b;
             background: linear-gradient(145deg, #9e1a36, #5a0a1e);
             position: relative;
             border-radius: 12px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(212, 175, 55, 0.2), inset 0 0 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(212, 175, 55, 0.2);
             border: 2px solid rgba(212, 175, 55, 0.4);
             transition: box-shadow 0.5s;
         }
-
         .envelope.open {
             box-shadow: 0 20px 80px rgba(212, 175, 55, 0.4), 0 0 60px rgba(255, 0, 100, 0.3);
         }
 
-        /* الغطاء المثلث */
         .flap {
             position: absolute;
             top: 0;
@@ -174,33 +269,16 @@
             height: 0;
             border-left: 170px solid transparent;
             border-right: 170px solid transparent;
-            border-top: 110px solid #b31b3a;
-            border-top-color: #c4244b;
+            border-top: 110px solid #c4244b;
             border-radius: 12px 12px 0 0;
             transform-origin: top;
             transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
             z-index: 3;
-            filter: drop-shadow(0 -5px 15px rgba(0, 0, 0, 0.4));
         }
-
-        /* إطار دهبي على حافة الغطاء */
-        .flap::after {
-            content: '';
-            position: absolute;
-            top: -110px;
-            left: -170px;
-            width: 340px;
-            height: 110px;
-            border-bottom: 3px solid #D4AF37;
-            border-radius: 50%;
-            opacity: 0.3;
-        }
-
         .envelope.open .flap {
             transform: rotateX(180deg);
         }
 
-        /* جسم الظرف */
         .body {
             background: linear-gradient(145deg, #8f122b, #4d0819);
             height: 100%;
@@ -213,21 +291,15 @@
             border: 1px solid rgba(212, 175, 55, 0.2);
         }
 
-        /* النص المكتوب على الظرف */
         .to-dodo {
-            color: #D4AF37;
             font-size: 28px;
             font-weight: 900;
-            text-shadow: 0 0 20px rgba(212, 175, 55, 0.6), 0 4px 15px rgba(0, 0, 0, 0.5);
-            letter-spacing: 4px;
             background: linear-gradient(45deg, #ffe68f, #d4af37, #b8860b);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
             font-family: 'Tajawal', sans-serif;
         }
 
-        /* الختم الأحمر بالشمع (على الغطاء) */
         .wax-seal {
             position: absolute;
             top: 55px;
@@ -239,7 +311,7 @@
             border-radius: 50%;
             z-index: 6;
             border: 3px solid #D4AF37;
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5), inset 0 -5px 15px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -247,16 +319,11 @@
             transition: all 0.5s;
             pointer-events: none;
         }
-        .wax-seal span {
-            transform: rotate(0deg);
-            filter: drop-shadow(0 0 10px gold);
-        }
         .envelope.open .wax-seal {
             opacity: 0;
             transform: translateX(-50%) scale(0) rotate(180deg);
         }
 
-        /* القلب اللي جوه الظرف (يظهر بعد الفتح) */
         .heart-inside {
             position: absolute;
             top: 50%;
@@ -267,48 +334,25 @@
             opacity: 0;
             transition: all 1s ease 0.6s;
             z-index: 5;
-            text-shadow: 0 0 50px #ff1493, 0 0 100px #ff1493;
-            pointer-events: none;
+            text-shadow: 0 0 50px #ff1493;
         }
-
         .envelope.open .heart-inside {
             opacity: 1;
             animation: pulseGold 1.2s infinite;
         }
 
         @keyframes pulseGold {
-            0% {
-                transform: translate(-50%, -50%) scale(1);
-            }
-            50% {
-                transform: translate(-50%, -50%) scale(1.3);
-                text-shadow: 0 0 80px #ff1493, 0 0 150px #ff1493;
-            }
-            100% {
-                transform: translate(-50%, -50%) scale(1);
-            }
+            0% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.3); text-shadow: 0 0 80px #ff1493; }
+            100% { transform: translate(-50%, -50%) scale(1); }
         }
 
-        /* ---------- الرسالة والزر (يظهرون بعد الفتح) ---------- */
         #messageArea {
             display: none;
             text-align: center;
             margin-top: 40px;
             animation: fadeSlideUp 0.8s ease;
-            position: relative;
-            z-index: 10;
             width: 100%;
-        }
-
-        @keyframes fadeSlideUp {
-            0% {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .reveal-message {
@@ -317,15 +361,11 @@
             color: #fff4e6;
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
             padding: 20px 40px;
             border-radius: 60px;
             border: 1.5px solid rgba(212, 175, 55, 0.5);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
             display: inline-block;
-            letter-spacing: 1px;
         }
-
         .reveal-message span {
             color: #D4AF37;
             font-weight: 900;
@@ -342,84 +382,30 @@
             border-radius: 60px;
             cursor: pointer;
             margin-top: 25px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 30px rgba(212, 175, 55, 0.4), inset 0 2px 0 rgba(255, 255, 255, 0.3);
-            letter-spacing: 2px;
+            transition: 0.3s;
             border: 1px solid #ffe68f;
         }
-
         .btn-gold:hover {
-            transform: translateY(-3px) scale(1.03);
+            transform: scale(1.03);
             box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6);
             background: linear-gradient(135deg, #ffe68f, #d4af37);
-            color: #0f030a;
         }
 
-        .btn-gold:active {
-            transform: scale(0.95);
-        }
-
-        /* ---------- التوافق مع الموبايل ---------- */
         @media (max-width: 500px) {
-            .envelope {
-                width: 260px;
-                height: 170px;
-            }
-            .flap {
-                border-left-width: 130px;
-                border-right-width: 130px;
-                border-top-width: 85px;
-            }
-            .flap::after {
-                top: -85px;
-                left: -130px;
-                width: 260px;
-                height: 85px;
-            }
-            .to-dodo {
-                font-size: 22px;
-            }
-            .wax-seal {
-                width: 45px;
-                height: 45px;
-                top: 40px;
-                font-size: 20px;
-            }
-            .heart-inside {
-                font-size: 40px;
-            }
-            .reveal-message {
-                font-size: 20px;
-                padding: 15px 25px;
-            }
-            .btn-gold {
-                padding: 14px 35px;
-                font-size: 20px;
-            }
-            .glow-effect {
-                width: 300px;
-                height: 300px;
-            }
+            .envelope { width: 260px; height: 170px; }
+            .flap { border-left-width: 130px; border-right-width: 130px; border-top-width: 85px; }
+            .to-dodo { font-size: 22px; }
+            .wax-seal { width: 45px; height: 45px; top: 40px; font-size: 20px; }
+            .heart-inside { font-size: 40px; }
+            .reveal-message { font-size: 20px; padding: 15px 25px; }
+            .btn-gold { padding: 14px 35px; font-size: 20px; }
+            .lock-screen { padding: 30px 20px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ========================================== -->
-    <!-- 🔥 القفل بالرقم السري (2025)              -->
-    <!-- ========================================== -->
-    <script>
-        // الرقم السري (غيّر 2025 إلى الرقم الذي تريده)
-        const PASSWORD = "2025";
-        
-        const userPassword = prompt("🔒 ادخلي الرقم السري يا دودو:");
-        if (userPassword !== PASSWORD) {
-            document.body.innerHTML = "<h1 style='color: #D4AF37; text-align: center; margin-top: 20%; font-family: Tajawal;'>⛔ عذراً، الرقم السري غير صحيح</h1>";
-            document.body.style.background = "#0f030a";
-        }
-    </script>
-
-    <!-- ---------- قلوب طايرة في الخلفية ---------- -->
+    <!-- قلوب طايرة -->
     <div class="floating-hearts">
         <div class="heart-float">❤️</div>
         <div class="heart-float">💛</div>
@@ -431,50 +417,111 @@
         <div class="heart-float">💕</div>
     </div>
 
-    <!-- ---------- المحتوى الأساسي ---------- -->
-    <div class="container">
-
-        <!-- الإضاءة الخلفية الذهبية -->
-        <div class="glow-effect"></div>
-
-        <!-- الظفر -->
-        <div class="envelope-wrapper" onclick="openEnvelope()">
-            <div class="envelope">
-                <!-- الغطاء المثلث -->
-                <div class="flap"></div>
-                <!-- ختم الشمع الأحمر -->
-                <div class="wax-seal"><span>❤️</span></div>
-                <!-- جسم الظرف -->
-                <div class="body">
-                    <span class="to-dodo">إلى دودو 💌</span>
-                </div>
-                <!-- القلب الجواه (يظهر بعد الفتح) -->
-                <div class="heart-inside">❤️‍🔥</div>
-            </div>
+    <!-- ===== شاشة القفل الفخمة ===== -->
+    <div class="lock-screen" id="lockScreen">
+        <span class="lock-icon">🔒❤️</span>
+        <h2>خاص بدودو</h2>
+        <p class="sub-lock">ادخلي الرقم السري عشان تكشفي الهدية</p>
+        
+        <div class="input-group">
+            <input type="password" id="passwordInput" placeholder="••••" maxlength="6" autofocus>
+            <button class="btn-unlock" onclick="checkPassword()">🗝️ فتح القفل</button>
         </div>
+        
+        <div id="errorMsg" class="error-msg"></div>
+        <div class="attempts">المحاولات المتبقية: <span id="attemptsCount">3</span></div>
+    </div>
 
-        <!-- الرسالة والزر (مخفيين في الأول) -->
-        <div id="messageArea">
-            <p class="reveal-message">
-                دودو.. <span>جاهزة</span> تسمعي الاعتذار؟
-            </p>
-            <button class="btn-gold" onclick="window.location.href='page2.html'">
-                أنا جاهز ❤️
-            </button>
+    <!-- ===== المحتوى الرئيسي (الظرف) ===== -->
+    <div class="main-content" id="mainContent">
+        <div class="container">
+            <div class="glow-effect"></div>
+            <div class="envelope-wrapper" onclick="openEnvelope()">
+                <div class="envelope">
+                    <div class="flap"></div>
+                    <div class="wax-seal"><span>❤️</span></div>
+                    <div class="body">
+                        <span class="to-dodo">إلى دودو 💌</span>
+                    </div>
+                    <div class="heart-inside">❤️‍🔥</div>
+                </div>
+            </div>
+            <div id="messageArea">
+                <p class="reveal-message">دودو.. <span>جاهزة</span> تسمعي الاعتذار؟</p>
+                <button class="btn-gold" onclick="window.location.href='page2.html'">أنا جاهز ❤️</button>
+            </div>
         </div>
     </div>
 
     <script>
+        // =============================================
+        //  🔑 الرقم السري (غيّر 2025 لأي رقم تحبه)
+        // =============================================
+        const PASSWORD = "2025";
+        let attempts = 3;
+
+        function checkPassword() {
+            const input = document.getElementById('passwordInput');
+            const errorMsg = document.getElementById('errorMsg');
+            const lockScreen = document.getElementById('lockScreen');
+            const mainContent = document.getElementById('mainContent');
+            const attemptsSpan = document.getElementById('attemptsCount');
+
+            const userPassword = input.value.trim();
+
+            // لو خلصت المحاولات
+            if (attempts <= 0) {
+                errorMsg.textContent = '🚫 تم حظر الجهاز! قومي بتحديث الصفحة (F5) للمحاولة مجدداً.';
+                input.disabled = true;
+                return;
+            }
+
+            if (userPassword === PASSWORD) {
+                // ✅ صح
+                lockScreen.style.display = 'none';
+                mainContent.style.display = 'flex';
+                // نركز على الظرف
+                mainContent.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                // ❌ غلط
+                attempts--;
+                attemptsSpan.textContent = attempts;
+
+                // تأثير هزة (شكل صعب)
+                lockScreen.classList.add('shake');
+                setTimeout(() => {
+                    lockScreen.classList.remove('shake');
+                }, 500);
+
+                if (attempts > 0) {
+                    errorMsg.textContent = `❌ الرقم السري غير صحيح! متبقي ${attempts} محاولات.`;
+                } else {
+                    errorMsg.textContent = '🚫 تم حظر الجهاز! قومي بتحديث الصفحة (F5) للمحاولة مجدداً.';
+                    input.disabled = true;
+                    document.querySelector('.btn-unlock').disabled = true;
+                }
+
+                input.value = '';
+                input.focus();
+            }
+        }
+
+        // السماح بالضغط على Enter
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+        // دالة فتح الظرف
         function openEnvelope() {
             const env = document.querySelector('.envelope');
-            // لو مش مفتوح، نفتحه
-            if (!env.classList.contains('open')) {
+            if (env && !env.classList.contains('open')) {
                 env.classList.add('open');
-                // نأخر ظهور الرسالة عشان نشوف أنيميشن الفتح
                 setTimeout(() => {
-                    document.getElementById('messageArea').style.display = 'block';
-                    // نلفت نظرها للأسفل بشكل ناعم
-                    document.getElementById('messageArea').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    const msgArea = document.getElementById('messageArea');
+                    if (msgArea) msgArea.style.display = 'block';
+                    msgArea.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }, 900);
             }
         }
