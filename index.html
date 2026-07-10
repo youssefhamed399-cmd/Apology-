@@ -405,6 +405,20 @@
 </head>
 <body>
 
+    <!-- ========================================== -->
+    <!-- 🔥 القفل بالرقم السري (2025)              -->
+    <!-- ========================================== -->
+    <script>
+        // الرقم السري (غيّر 2025 إلى الرقم الذي تريده)
+        const PASSWORD = "2025";
+        
+        const userPassword = prompt("🔒 ادخلي الرقم السري يا دودو:");
+        if (userPassword !== PASSWORD) {
+            document.body.innerHTML = "<h1 style='color: #D4AF37; text-align: center; margin-top: 20%; font-family: Tajawal;'>⛔ عذراً، الرقم السري غير صحيح</h1>";
+            document.body.style.background = "#0f030a";
+        }
+    </script>
+
     <!-- ---------- قلوب طايرة في الخلفية ---------- -->
     <div class="floating-hearts">
         <div class="heart-float">❤️</div>
@@ -445,7 +459,7 @@
                 دودو.. <span>جاهزة</span> تسمعي الاعتذار؟
             </p>
             <button class="btn-gold" onclick="window.location.href='page2.html'">
-    أنا جاهز ❤️
+                أنا جاهز ❤️
             </button>
         </div>
     </div>
